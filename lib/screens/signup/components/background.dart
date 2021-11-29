@@ -10,20 +10,12 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       height: size.height,
       width: double.infinity,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          Positioned(
-            top: 100,
-            left: 8,
-            child: Image.asset(
-              "assets/icons/logo_floivery.png",
-              width: size.width,
-            ),
-          ),
           child,
         ],
       ),
