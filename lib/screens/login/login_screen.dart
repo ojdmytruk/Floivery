@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:floivery/screens/login/components/body.dart';
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      body: Body(),
+    );
   }
-
 }

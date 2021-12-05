@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "phoneNumber": "(096)594-12-92",
+      "password": "12345",
+      "email": "kate.nova14@gmail.com"
+    },
+    {
+      "id": 2,
+      "phoneNumber": "(067)981-16-64",
+      "password": "123456",
+      "email": "email@gmail.com"
+    }
+  ]
+}
