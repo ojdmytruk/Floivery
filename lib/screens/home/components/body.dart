@@ -1,4 +1,3 @@
-import 'package:floivery/screens/login/components/body.dart';
 import 'package:floivery/screens/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:floivery/screens/signup/components/background.dart';
@@ -17,7 +16,6 @@ class Body extends StatefulWidget {
 class BodyState extends State<Body> {
 
   UserData user = new UserData();
-  UserSession session = new UserSession();
 
   @override
   void initState() {
