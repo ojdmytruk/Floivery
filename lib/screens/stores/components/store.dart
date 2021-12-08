@@ -15,15 +15,10 @@ class StoreWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
+          Image.asset(
+            "assets/icons/avatar.png",
             width: storesScreenWidth * 0.2,
             height: blockHeight,
-            color: Colors.pink[600],
-            child: Image.asset(
-              "assets/icons/avatar.png",
-              width: storesScreenWidth * 0.2,
-              height: blockHeight,
-            ),
           ),
           Container(
             width: infoBlockWith,
