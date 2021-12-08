@@ -19,11 +19,11 @@ class User {
   final email;
 
   const User({
-    this.id,
-    this.name,
-    this.phoneNumber,
-    this.password,
-    this.email,
+    required this.id,
+    required this.name,
+    required this.phoneNumber,
+    required this.password,
+    required this.email,
   });
 
   User copy({
@@ -50,15 +50,4 @@ class User {
       email: json['email'] as String,
     );
   }
-
-  Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'phoneNumber': phoneNumber,
-    'password': password,
-    'email': email,
-  };
-
-  @override
-  String toString() => 'User{id: $id, name: $name}';
 }

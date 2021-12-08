@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Katod",
       "phoneNumber": "(096)594-12-92",
       "password": "12345",
       "email": "kate.nova14@gmail.com"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Nematematik",
       "phoneNumber": "(050)699-23-50",
       "password": "123456",
