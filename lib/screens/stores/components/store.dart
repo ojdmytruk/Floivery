@@ -23,7 +23,7 @@ class StoreWidget extends StatelessWidget {
           ),
           Container(
             width: infoBlockWith,
-            height: blockHeight,
+            height: blockHeight * 1.2,
             child: Column(
               children: [
                 Text(
