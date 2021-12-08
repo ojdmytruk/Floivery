@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: kBackground,
         ),
         initialRoute: 'store-scrern',
+        // home: RegistrationScreen(),
         routes: {
           'registration-screen': (context) => const RegistrationScreen(),
           'main-screen': (context) => const MainScreen(),

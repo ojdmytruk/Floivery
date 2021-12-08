@@ -50,4 +50,13 @@ class User {
       email: json['email'] as String,
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'name': name,
+    'phoneNumber': phoneNumber,
+    'password': password,
+    'email': email,
+  };
+
 }

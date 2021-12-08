@@ -4,7 +4,6 @@ import 'package:floivery/components/rounded_button.dart';
 import 'package:floivery/components/input_field.dart';
 import 'package:floivery/components/password_field.dart';
 import 'package:floivery/screens/main_page/main_page_screen.dart';
-import 'package:floivery/constants.dart';
 import 'package:flutter/painting.dart';
 import 'dart:convert';
 import 'dart:io';
@@ -33,7 +32,13 @@ class Body extends StatefulWidget {
 
 class BodyState extends State<Body> with InputValidation{
 
-  User user = new User();
+  User user = User(
+    id:'',
+    email: '',
+    name: '',
+    password: '',
+    phoneNumber: ''
+  );
 
   @override
   void initState() {
