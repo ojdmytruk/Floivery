@@ -19,8 +19,10 @@ class StoreWidget extends StatelessWidget {
             width: storesScreenWidth * 0.2,
             height: blockHeight,
             color: Colors.pink[600],
-            child: const Center(
-              child: Text("Picture"),
+            child: Image.asset(
+              "assets/icons/avatar.png",
+              width: storesScreenWidth * 0.2,
+              height: blockHeight,
             ),
           ),
           Container(
