@@ -46,7 +46,7 @@ class StoreWidget extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: blockHeight * 0.3,
+                  height: blockHeight * 0.5,
                   child: RoundedShortButton(
                     text: "Order",
                     press: () {},
