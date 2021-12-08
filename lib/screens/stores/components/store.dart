@@ -31,7 +31,7 @@ class StoreWidget extends StatelessWidget {
                   style: const TextStyle(fontSize: 18.0, color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  height: blockHeight * 0.5,
+                  height: blockHeight * 0.3,
                   child: Row(
                     children: <Widget>[
                       const Icon(Icons.star_border_rounded),
@@ -48,7 +48,7 @@ class StoreWidget extends StatelessWidget {
                 Container(
                   height: blockHeight * 0.3,
                   child: RoundedShortButton(
-                    text: "Submit",
+                    text: "Order",
                     press: () {},
                   ),
                 )
