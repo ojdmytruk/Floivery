@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
           primaryColor: kPrimaryColor,
           scaffoldBackgroundColor: kBackground,
         ),
-        initialRoute: 'store-scrern',
+        initialRoute: 'store-screen',
         routes: {
           'registration-screen': (context) => const RegistrationScreen(),
           'main-screen': (context) => const MainScreen(),
-          'store-scrern': (context) => const StoresScreen(),
+          'store-screen': (context) => const StoresScreen(),
           'profile-screen': (context) => const ProfileScreen(),
           // 'search-screen': (context) => (),
           // 'profile-screen': (context) => (),
