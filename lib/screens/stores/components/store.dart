@@ -37,6 +37,10 @@ class StoreWidget extends StatelessWidget {
                       const Expanded(
                         child: Text("0"),
                       ),
+                      const Icon(Icons.chat_outlined),
+                      const Expanded(
+                        child: Text("reviews (0)"),
+                      ),
                     ],
                   ),
                 ),
