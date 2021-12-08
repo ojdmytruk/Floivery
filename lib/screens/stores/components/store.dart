@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:floivery/components/rounded_button_short.dart';
 
 class StoreWidget extends StatelessWidget {
   const StoreWidget({Key? key}) : super(key: key);
@@ -46,9 +47,9 @@ class StoreWidget extends StatelessWidget {
                 ),
                 Container(
                   height: blockHeight * 0.3,
-                  color: Colors.blue,
-                  child: const Center(
-                    child: Text("Submit"),
+                  child: RoundedShortButton(
+                    text: "Submit",
+                    press: () {},
                   ),
                 )
               ],
