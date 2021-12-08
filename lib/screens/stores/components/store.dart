@@ -30,7 +30,7 @@ class StoreWidget extends StatelessWidget {
                   height: blockHeight * 0.2,
                   color: Colors.grey,
                   child: const Center(
-                    child: Text("Title"),
+                    child: Text("hi"),
                   ),
                 ),
                 Container(
