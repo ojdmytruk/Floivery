@@ -16,7 +16,7 @@ class StoreWidget extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            "assets/icons/avatar.png",
+            "assets/icons/shop1.png",
             width: storesScreenWidth * 0.2,
             height: blockHeight,
           ),
@@ -26,12 +26,9 @@ class StoreWidget extends StatelessWidget {
             color: Colors.green,
             child: Column(
               children: [
-                Container(
-                  height: blockHeight * 0.2,
-                  color: Colors.grey,
-                  child: const Center(
-                    child: Text("hi"),
-                  ),
+                Text(
+                  'Antioch Flower Shop',
+                  style: const TextStyle(fontSize: 18.0, color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
                 Container(
                   height: blockHeight * 0.5,
@@ -42,7 +39,12 @@ class StoreWidget extends StatelessWidget {
                         color: Colors.orange,
                         width: infoBlockWith * 0.5,
                         child: const Center(
-                          child: Text("Rating"),
+                          child: Icon(
+                            Icons.favorite,
+                            color: Colors.pink,
+                            size: 15.0,
+                            semanticLabel: 'Text to announce in accessibility modes',
+                          ),
                         ),
                       ),
                       Container(
