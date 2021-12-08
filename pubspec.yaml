@@ -68,7 +68,11 @@ flutter:
   assets:
     - assets/icons/
     - assets/data.json
+    - assets/store_orders/
     - assets/bouquets/
+    - assets/baskets/
+    - assets/boxes/
+    - assets/flowers/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -1,27 +1,27 @@
 import 'package:floivery/components/navigator.dart';
 import 'package:floivery/components/top_logo.dart';
 import 'package:flutter/material.dart';
-import 'components/bouquets.dart';
+import 'components/orders.dart';
 
-class BouquetsScreen extends StatelessWidget {
-  const BouquetsScreen({Key? key}) : super(key: key);
+class OrderScreen extends StatelessWidget {
+  const OrderScreen({Key? key}) : super(key: key);
 
   final List<String> images = const [
-    'assets/bouquets/bouqouet.png',
-    'assets/bouquets/busket.png',
-    'assets/bouquets/chrizantema.png',
-    'assets/bouquets/darina.png',
-    'assets/bouquets/pink1.png',
-    'assets/bouquets/pink-basket.png',
-    'assets/bouquets/rose_rose.png'
+    'assets/store_orders/bouqouet.png',
+    'assets/store_orders/busket.png',
+    'assets/store_orders/chrizantema.png',
+    'assets/store_orders/darina.png',
+    'assets/store_orders/pink1.png',
+    'assets/store_orders/pink-basket.png',
+    'assets/store_orders/rose_rose.png'
   ];
 
   final List<String> titles = const [
-    'Rose bouquet',
+    'Rose store_orders',
     'Mix basket',
     'Purple chrysanthemums',
-    'Mix bouquet',
-    'Pink bouquet',
+    'Mix store_orders',
+    'Pink store_orders',
     'Pink basket',
     'Roses pink basket'
   ];
@@ -34,7 +34,7 @@ class BouquetsScreen extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             const TopLogo(),
-            for (int i = 0; i < 7; i++) BouqetWidget(
+            for (int i = 0; i < 7; i++) OrderWidget(
               image: images[i],
               title: titles[i],
             ),
