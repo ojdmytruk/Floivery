@@ -39,6 +39,8 @@ dependencies:
   mask_input_formatter: ^0.0.3
   mask_text_input_formatter: ^2.0.0
   shared_preferences: ^0.5.12+4
+  uuid: ^2.2.2
+  path_provider: ^1.6.27
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:floivery/constants.dart';
 import 'package:floivery/screens/home/home.dart';
 import 'package:floivery/screens/models/user.dart';
@@ -8,6 +9,7 @@ import 'package:floivery/components/rounded_button.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_input_formatter/mask_input_formatter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
 
 mixin UserValidation {
 
@@ -49,6 +51,7 @@ class UserSession {
   setUserSession (User user) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('id', user.id);
+    await prefs.setString('name', user.name);
     await prefs.setString('phoneNumber', user.phoneNumber);
     await prefs.setString('password', user.password);
     await prefs.setString('email', user.email);
@@ -67,6 +70,7 @@ class BodyState extends State<Body> with UserValidation {
   List<User> users = [];
   String res = '';
   UserSession session = new UserSession();
+
   //const Body({Key? key}) : super(key: key);
   @override
   void initState() {
@@ -74,9 +78,17 @@ class BodyState extends State<Body> with UserValidation {
     this.readJson();
   }
 
+  // Future<String> get _localPath async {
+  //   final directory = await getApplicationDocumentsDirectory();
+  //   return directory.path;
+  // }
+
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/data.json');
     final data = jsonDecode(response)["users"].cast<Map<String, dynamic>>();
+    // final path = await _localPath;
+    // // File jsonFile = File ('$path/users.json');
+    // final data = jsonDecode('$path/users.json');
     setState(() {
       users = data.map<User>((json) => User.fromJson(json)).toList();
     });

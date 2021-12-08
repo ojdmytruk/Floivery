@@ -57,24 +57,28 @@ class BodyState extends State<Body> {
             ),
             SizedBox(height: size.height * 0.01),
             InputField(
+              inputFormaters: [],
               labelText: "id",
               hintText: user.id.toString(),
               onChanged: (value) {},
             ),
             SizedBox(height: size.height * 0.01),
             InputField(
+              inputFormaters: [],
               labelText: "email",
               hintText: user.email,
               onChanged: (value) {},
             ),
             SizedBox(height: size.height * 0.01),
             InputField(
+              inputFormaters: [],
               labelText: "Phone Number",
               hintText: user.phoneNumber,
               onChanged: (value) {},
             ),
             SizedBox(height: size.height * 0.01),
             PasswordField(
+              val: (value){},
               labelText: "Password",
               hintText: user.password,
               onChanged: (value) {},
