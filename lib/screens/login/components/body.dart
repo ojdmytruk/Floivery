@@ -1,15 +1,13 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:floivery/constants.dart';
-import 'package:floivery/screens/home/home.dart';
 import 'package:floivery/screens/models/user.dart';
+import 'package:floivery/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:floivery/screens/signup/components/background.dart';
 import 'package:floivery/components/rounded_button.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_input_formatter/mask_input_formatter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:path_provider/path_provider.dart';
 
 mixin UserValidation {
 
@@ -29,6 +27,7 @@ mixin UserValidation {
           users.where((element) =>
           element.phoneNumber == phoneNumber).toList();
 
+
      if (usersList.isEmpty) {
        return false;
      }
@@ -47,17 +46,6 @@ mixin UserValidation {
   }
 }
 
-class UserSession {
-  setUserSession (User user) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('id', user.id);
-    await prefs.setString('name', user.name);
-    await prefs.setString('phoneNumber', user.phoneNumber);
-    await prefs.setString('password', user.password);
-    await prefs.setString('email', user.email);
-  }
-}
-
 class Body extends StatefulWidget {
   @override
   BodyState createState() => BodyState();
@@ -69,8 +57,7 @@ class BodyState extends State<Body> with UserValidation {
   bool _isHidden = true;
   List<User> users = [];
   String res = '';
-  UserSession session = new UserSession();
-
+  SharedPreferences? preferences;
   //const Body({Key? key}) : super(key: key);
   @override
   void initState() {
@@ -78,17 +65,18 @@ class BodyState extends State<Body> with UserValidation {
     this.readJson();
   }
 
-  // Future<String> get _localPath async {
-  //   final directory = await getApplicationDocumentsDirectory();
-  //   return directory.path;
-  // }
+  Future<void> setUserSession (User user) async{
+    preferences  = await SharedPreferences.getInstance();
+    await preferences!.setInt('id', user.id);
+    await preferences!.setString('name', user.name);
+    await preferences!.setString('phoneNumber', user.phoneNumber);
+    await preferences!.setString('password', user.password);
+    await preferences!.setString('email', user.email);
+  }
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/data.json');
     final data = jsonDecode(response)["users"].cast<Map<String, dynamic>>();
-    // final path = await _localPath;
-    // // File jsonFile = File ('$path/users.json');
-    // final data = jsonDecode('$path/users.json');
     setState(() {
       users = data.map<User>((json) => User.fromJson(json)).toList();
     });
@@ -192,17 +180,17 @@ class BodyState extends State<Body> with UserValidation {
                     _formKey.currentState!.save();
                   }
                   if (userCredsAreValid(creds, users)) {
-                    //set data to session
-                    session.setUserSession(getCurrentUser(creds.phoneNumber));
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return HomeScreen();
-                        },
-                      ),
-                    );
+                    setUserSession(getCurrentUser(creds.phoneNumber)).whenComplete((){
+                      setState(() {});
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProfileScreen();
+                          },
+                        ),
+                      );
+                    });
                   }
                 },
                 ),
