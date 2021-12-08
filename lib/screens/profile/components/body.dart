@@ -27,7 +27,7 @@ class BodyState extends State<Body> {
   getUserData() async {
     UserData userData = new UserData();
     final prefs = await SharedPreferences.getInstance();
-    userData.id = prefs.getInt("id");
+    userData.id = prefs.getString("id");
     userData.name = prefs.getString("name");
     userData.password = prefs.getString("password");
     userData.phoneNumber = prefs.getString("phoneNumber");

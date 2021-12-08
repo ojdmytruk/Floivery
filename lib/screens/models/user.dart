@@ -4,7 +4,7 @@ class LoginData {
 }
 
 class UserData {
-  int id = 0;
+  String id = '';
   String name = '';
   String password = '';
   String phoneNumber = '';
@@ -43,7 +43,7 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User (
-      id: json['id'] as int,
+      id: json['id'] as String,
       name: json['name'] as String,
       phoneNumber: json['phoneNumber'] as String,
       password: json['password'] as String,

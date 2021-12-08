@@ -1,9 +1,9 @@
+import 'package:floivery/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:floivery/screens/signup/components/background.dart';
 import 'package:floivery/components/rounded_button.dart';
 import 'package:floivery/components/input_field.dart';
 import 'package:floivery/components/password_field.dart';
-import 'package:floivery/screens/main_page/main_page_screen.dart';
 import 'package:flutter/painting.dart';
 import 'dart:convert';
 import 'dart:io';
@@ -122,7 +122,7 @@ class BodyState extends State<Body> with InputValidation{
 
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) {
-          return const MainPage();
+          return LoginScreen();
         },
       ));
       // final isNewUser = widget.id == null;
