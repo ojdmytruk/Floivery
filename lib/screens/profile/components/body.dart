@@ -128,34 +128,14 @@ class BodyState extends State<Body> {
               SizedBox(height: size.height * 0.03),
               SizedBox(
                 width: 300,
-                child: Row(
-                children: <Widget> [
-                SizedBox(
-                  width: size.width * 0.15,
-                  child: const Text('Email: ' ,
-                    style: TextStyle(
+                  child: Text('Email: ${user.email}' ,
+                    style: const TextStyle(
                         fontSize: 20.0,
                         color: kAdditional,
                         fontWeight: FontWeight.bold
                     ),
                   ),
                 ),
-                SizedBox(
-                    width: 225,
-                    child: FittedBox(
-                      fit: BoxFit.fitWidth,
-                      child: Text(user.email,
-                      style: const TextStyle(
-                          fontSize: 20.0,
-                          color: kAdditional,
-                          fontWeight: FontWeight.bold
-                          ),
-                        ),
-                      ),
-                    ),
-                  ]
-                ),
-              ),
               SizedBox(height: size.height * 0.03),
               SizedBox(
                 width: size.width * 0.6,
