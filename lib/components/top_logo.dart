@@ -7,7 +7,7 @@ class TopLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var heighLogo = MediaQuery.of(context).size.height * 0.10;
-    var widthLogo = MediaQuery.of(context).size.width * 0.9;
+    var widthLogo = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.only(top: 25),
       height: heighLogo,
