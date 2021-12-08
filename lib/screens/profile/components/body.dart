@@ -1,5 +1,6 @@
 import 'package:floivery/components/log_out_button.dart';
 import 'package:floivery/components/rounded_button_short.dart';
+import 'package:floivery/components/top_logo.dart';
 import 'package:floivery/constants.dart';
 import 'package:floivery/screens/login/login_screen.dart';
 import 'package:floivery/screens/models/user.dart';
@@ -58,43 +59,13 @@ class BodyState extends State<Body> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Image.asset(
-                    "assets/icons/small_left.png",
-                    width: size.width * 0.3,
-                    height: size.height * 0.15,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(top: 20, left: 7, right: 7),
-                  child: Title(
-                    child: const Text('FLOIVERY',
-                        style: TextStyle(fontSize: 24.0, color: kPrimaryColor)),
-                    color: kBackground,
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Image.asset(
-                    "assets/icons/small_right.png",
-                    width: size.width * 0.3,
-                    height: size.height * 0.15,
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(50.0),
-                child: Image.asset(
-                  "assets/icons/avatar.png",
-                  width: size.width * 0.3,
-                  height: size.width * 0.3,
-                ),
+            const TopLogo(),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50.0),
+              child: Image.asset(
+                "assets/icons/avatar.png",
+                width: size.width * 0.3,
+                height: size.width * 0.3,
               ),
             ),
             SizedBox(height: size.height * 0.05),

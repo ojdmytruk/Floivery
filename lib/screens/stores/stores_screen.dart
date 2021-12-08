@@ -8,8 +8,6 @@ class StoresScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var store_screen_height = MediaQuery.of(context).size.height * 0.92;
-    var store_screen_width = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: const BottomNavigator(),
       body: ListView(
