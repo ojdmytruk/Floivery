@@ -39,7 +39,7 @@ class RoundedShortButton extends StatelessWidget {
           primary: color,
           padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
           textStyle: TextStyle(
-              color: textColor, fontSize: 16, fontWeight: FontWeight.w500)),
+              color: textColor, fontSize: 12, fontWeight: FontWeight.w500)),
     );
   }
 }

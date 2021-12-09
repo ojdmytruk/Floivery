@@ -27,6 +27,7 @@ mixin UserValidation {
           users.where((element) =>
           element.phoneNumber == phoneNumber).toList();
 
+
      if (usersList.isEmpty) {
        return false;
      }
@@ -66,7 +67,7 @@ class BodyState extends State<Body> with UserValidation {
 
   Future<void> setUserSession (User user) async{
     preferences  = await SharedPreferences.getInstance();
-    await preferences!.setInt('id', user.id);
+    await preferences!.setString('id', user.id);
     await preferences!.setString('name', user.name);
     await preferences!.setString('phoneNumber', user.phoneNumber);
     await preferences!.setString('password', user.password);

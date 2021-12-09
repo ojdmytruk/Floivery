@@ -4,22 +4,29 @@ import 'package:floivery/constants.dart';
 
 class InputField extends StatelessWidget {
   final String hintText, labelText;
-  // final IconData icon;
+  // final TextEditingController controller;
   final ValueChanged<String> onChanged;
+  // final String? Function(String?) val;
+  final List? inputFormaters;
   const InputField({
     Key? key,
     required this.labelText,
     required this.hintText,
-    // this.icon = Icons.person,
+    // required this.controller,
+    // required this.val,
     required this.onChanged,
+    required this.inputFormaters,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
-      child: TextField(
+      child: TextFormField(
+        // controller: controller,
+        // validator: val,
         onChanged: onChanged,
         cursorColor: kPrimaryColor,
+        inputFormatters: [],
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: const TextStyle(color: Colors.blueGrey),

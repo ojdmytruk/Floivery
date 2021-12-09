@@ -12,7 +12,7 @@ class StoresScreen extends StatelessWidget {
         bottomNavigationBar: const BottomNavigator(),
         body: SingleChildScrollView(
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             const TopLogo(),
             for (int i = 0; i < 15; i++) const StoreWidget(),
           ]),
