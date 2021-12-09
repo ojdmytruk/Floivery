@@ -1,5 +1,7 @@
 import 'package:floivery/constants.dart';
+import 'package:floivery/screens/main/main_screen.dart';
 import 'package:floivery/screens/profile/profile.dart';
+import 'package:floivery/screens/store_orders/order_screen.dart';
 // import 'package:floivery/screens/main/main_screen.dart';
 import 'package:floivery/screens/stores/stores_screen.dart';
 import 'package:floivery/search/search_screen_stores.dart';
@@ -25,11 +27,8 @@ class AppNavigator extends State<BottomNavigator> {
       switch (index) {
         case 0:
           {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const StoresScreen())); //изменить потом на главную страницу вместо страницы категорий магазинов
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const MainScreen()));
           }
           break;
         case 1:
@@ -41,12 +40,12 @@ class AppNavigator extends State<BottomNavigator> {
           }
           break;
 
-        // case 2:
-        //   {
-        //     Navigator.push(
-        //         context, MaterialPageRoute(builder: (context) => OrdersPage()));
-        //   }
-        //   break;
+        case 2:
+          {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const OrderScreen()));
+          }
+          break;
         case 3:
           {
             Navigator.push(context,

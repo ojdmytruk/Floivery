@@ -21,7 +21,7 @@ class SearchStoresScreen extends StatelessWidget {
                 height: heighScreen * 0.05,
                 width: widthScreen * 0.9,
                 decoration: BoxDecoration(
-                    border: Border.all(color: kAdditional, width: 1.5),
+                    border: Border.all(color: kAdditional, width: 1),
                     borderRadius: BorderRadius.circular(20)),
                 child: Row(
                   children: [
@@ -32,10 +32,7 @@ class SearchStoresScreen extends StatelessWidget {
                         }),
                     const Text(
                       "Search field",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: kAdditional),
+                      style: TextStyle(fontSize: 16, color: kAdditional),
                     ),
                   ],
                 ),

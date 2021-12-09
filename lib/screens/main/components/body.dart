@@ -2,7 +2,14 @@ import 'package:floivery/components/top_logo.dart';
 import 'package:floivery/constants.dart';
 import 'package:floivery/screens/main/components/category_button.dart';
 import 'package:floivery/screens/main/main_screen.dart';
+import 'package:floivery/screens/store_orders/baskets.dart';
+import 'package:floivery/screens/store_orders/bouquets.dart';
+import 'package:floivery/screens/store_orders/boxes.dart';
+import 'package:floivery/screens/store_orders/flowers.dart';
+import 'package:floivery/screens/store_orders/order_screen.dart';
 import 'package:floivery/screens/stores/stores_screen.dart';
+import 'package:floivery/search/search_screen_cities.dart';
+import 'package:floivery/search/search_screen_items.dart';
 import 'package:flutter/material.dart';
 
 class BodyOfMain extends StatefulWidget {
@@ -21,9 +28,27 @@ class _BodyOfMainState extends State<BodyOfMain> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         const TopLogo(),
         Container(
-          height: heighScreen * 0.08,
-          width: widthScreen,
-          color: Colors.green,
+          height: heighScreen * 0.05,
+          width: widthScreen * 0.85,
+          decoration: BoxDecoration(
+              border: Border.all(color: kAdditional, width: 1),
+              borderRadius: BorderRadius.circular(20)),
+          child: Row(
+            children: [
+              IconButton(
+                  icon: const Icon(
+                    Icons.location_on,
+                    color: kAdditional,
+                  ),
+                  onPressed: () {
+                    showSearch(context: context, delegate: DataSearch());
+                  }),
+              const Text(
+                "Location",
+                style: TextStyle(fontSize: 15, color: kAdditional),
+              ),
+            ],
+          ),
         ),
         const Text(
           "Categories",
@@ -63,7 +88,7 @@ class _BodyOfMainState extends State<BodyOfMain> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const StoresScreen();
+                        return const BouquetsScreen();
                       },
                     ),
                   );
@@ -79,7 +104,7 @@ class _BodyOfMainState extends State<BodyOfMain> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const StoresScreen();
+                        return const BasketsScreen();
                       },
                     ),
                   );
@@ -95,7 +120,7 @@ class _BodyOfMainState extends State<BodyOfMain> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const StoresScreen();
+                        return const BoxesScreen();
                       },
                     ),
                   );
@@ -111,7 +136,7 @@ class _BodyOfMainState extends State<BodyOfMain> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const StoresScreen();
+                        return const FlowersScreen();
                       },
                     ),
                   );
@@ -127,7 +152,7 @@ class _BodyOfMainState extends State<BodyOfMain> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const StoresScreen();
+                        return const OrderScreen();
                       },
                     ),
                   );
@@ -212,6 +237,83 @@ class _BodyOfMainState extends State<BodyOfMain> {
           ),
         ),
       ]),
+    );
+  }
+}
+
+class DataSearch extends SearchDelegate<String> {
+  final cities = ["Kyiv", "Kharkiv", "Odessa", "Lviv"];
+  final recentCities = ["Kyiv", "Odessa"];
+
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = "";
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, "");
+        },
+        icon: AnimatedIcon(
+          icon: AnimatedIcons.menu_arrow,
+          progress: transitionAnimation,
+        ));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return Card(
+      color: Colors.green,
+      shape: StadiumBorder(),
+      child: Center(
+        child: Text(query),
+      ),
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final suggestionList = query.isEmpty
+        ? recentCities
+        : cities
+            .where((p) => p.toLowerCase().startsWith(query.toLowerCase()))
+            .toList();
+
+    return ListView.builder(
+      itemBuilder: (context, index) => ListTile(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const MainScreen();
+                },
+              ),
+            );
+          },
+          leading: Icon(Icons.location_city),
+          title: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: suggestionList[index].substring(query.length),
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ],
+              text: suggestionList[index].substring(0, query.length),
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+          )),
+      itemCount: suggestionList.length,
     );
   }
 }

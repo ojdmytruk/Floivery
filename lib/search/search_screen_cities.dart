@@ -1,3 +1,4 @@
+import 'package:floivery/constants.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -5,16 +6,21 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var heighScreen = MediaQuery.of(context).size.height;
+    var widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(title: const Text("Cities search"), actions: <Widget>[
-        IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              showSearch(context: context, delegate: DataSearch());
-            })
-      ]),
-      drawer: Drawer(),
-    );
+        body: Container(
+      // height: heighScreen * 0.03,
+      // width: widthScreen * 0.8,
+      decoration: BoxDecoration(
+          border: Border.all(color: kAdditional, width: 1.5),
+          borderRadius: BorderRadius.circular(20)),
+      child: IconButton(
+          icon: const Icon(Icons.search),
+          onPressed: () {
+            showSearch(context: context, delegate: DataSearch());
+          }),
+    ));
   }
 }
 
