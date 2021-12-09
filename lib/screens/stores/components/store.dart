@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:floivery/components/rounded_button_short.dart';
+import 'package:floivery/screens/store_orders/order_screen.dart';
 
 class StoreWidget extends StatelessWidget {
   const StoreWidget({Key? key}) : super(key: key);
@@ -18,51 +21,52 @@ class StoreWidget extends StatelessWidget {
           Container(
             width: storesScreenWidth * 0.2,
             height: blockHeight,
-            color: Colors.pink[600],
-            child: const Center(
-              child: Text("Picture"),
+            child: Image.asset(
+              "assets/icons/shop1.png",
+              fit: BoxFit.contain,
+              width: storesScreenWidth * 0.2,
+              height: blockHeight,
+              // color: Colors.pink[600],
             ),
           ),
           Container(
             width: infoBlockWith,
-            height: blockHeight,
-            color: Colors.green,
+            height: blockHeight * 1.2,
             child: Column(
               children: [
-                Container(
-                  height: blockHeight * 0.2,
-                  color: Colors.grey,
-                  child: const Center(
-                    child: Text("Title"),
-                  ),
+                Text(
+                  'Antioch Flower Shop',
+                  style: const TextStyle(fontSize: 18.0, color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  height: blockHeight * 0.5,
-                  color: Colors.yellow,
+                  height: blockHeight * 0.3,
                   child: Row(
-                    children: [
-                      Container(
-                        color: Colors.orange,
-                        width: infoBlockWith * 0.5,
-                        child: const Center(
-                          child: Text("Rating"),
-                        ),
+                    children: <Widget>[
+                      const Icon(Icons.star_border_rounded),
+                      const Expanded(
+                        child: Text("0"),
                       ),
-                      Container(
-                        color: Colors.red,
-                        width: infoBlockWith * 0.5,
-                        child: const Center(
-                          child: Text("Reviews"),
-                        ),
-                      )
+                      const Icon(Icons.chat_outlined),
+                      const Expanded(
+                        child: Text("reviews (0)"),
+                      ),
                     ],
                   ),
                 ),
                 Container(
-                  height: blockHeight * 0.3,
-                  color: Colors.blue,
-                  child: const Center(
-                    child: Text("Submit"),
+                  height: blockHeight * 0.45,
+                  child: RoundedShortButton(
+                    text: "Order",
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return OrderScreen();
+                          },
+                        ),
+                      );
+                    },
                   ),
                 )
               ],
