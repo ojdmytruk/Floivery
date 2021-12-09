@@ -1,6 +1,5 @@
 import 'package:floivery/components/navigator.dart';
 import 'package:floivery/components/top_logo.dart';
-import 'package:floivery/screens/home/components/body.dart';
 import 'package:flutter/material.dart';
 import 'components/store.dart';
 
