@@ -20,14 +20,14 @@ class SearchStoresScreen extends StatelessWidget {
 
 class DataSearch extends SearchDelegate<String> {
   final Stores = [
-    Store("29 flowers", 5.0),
-    Store("Flowerista", 4.5),
+    Store("Flowers 29", 5.0),
+    Store("Flowerista", 4.3),
     Store("Flowery", 4.7),
     Store("Donpion", 3.0),
     Store("Camellia", 1.0)
   ];
   final recentStores = [
-    Store("29 flowers", 5.0),
+    Store("Flowers 29", 5.0),
     Store("Flowerista", 4.5),
   ];
 
@@ -91,7 +91,16 @@ class DataSearch extends SearchDelegate<String> {
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
-          )),
+          ),
+          subtitle: RichText(
+            text: TextSpan(
+                text: "Shop's rating: " +
+                    suggestionList[index].rating.toString() +
+                    " stars",
+                style: TextStyle(color: Colors.grey)),
+          ),
+          trailing:
+              suggestionList[index].rating > 4.5 ? Icon(Icons.star) : null),
       itemCount: suggestionList.length,
     );
   }

@@ -1,9 +1,9 @@
 import 'package:floivery/screens/main/main_screen.dart';
 import 'package:floivery/screens/profile/profile.dart';
 import 'package:floivery/screens/stores/stores_screen.dart';
-import 'package:floivery/search/search_screen.dart';
-import 'package:floivery/search/search_screen_item.dart';
-import 'package:floivery/search/search_screen_shops.dart';
+import 'package:floivery/search/search_screen_cities.dart';
+import 'package:floivery/search/search_screen_items.dart';
+import 'package:floivery/search/search_screen_stores.dart';
 import 'package:flutter/material.dart';
 import 'package:floivery/screens/registration/registration_screen.dart';
 import 'package:floivery/constants.dart';

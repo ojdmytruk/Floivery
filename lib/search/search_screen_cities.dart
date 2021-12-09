@@ -60,7 +60,9 @@ class DataSearch extends SearchDelegate<String> {
   Widget buildSuggestions(BuildContext context) {
     final suggestionList = query.isEmpty
         ? recentCities
-        : cities.where((p) => p.startsWith(query)).toList();
+        : cities
+            .where((p) => p.toLowerCase().startsWith(query.toLowerCase()))
+            .toList();
 
     return ListView.builder(
       itemBuilder: (context, index) => ListTile(
