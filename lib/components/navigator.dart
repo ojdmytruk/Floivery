@@ -2,6 +2,7 @@ import 'package:floivery/constants.dart';
 import 'package:floivery/screens/profile/profile.dart';
 // import 'package:floivery/screens/main/main_screen.dart';
 import 'package:floivery/screens/stores/stores_screen.dart';
+import 'package:floivery/search/search_screen_stores.dart';
 
 import 'package:flutter/material.dart';
 
@@ -31,13 +32,15 @@ class AppNavigator extends State<BottomNavigator> {
                         const StoresScreen())); //изменить потом на главную страницу вместо страницы категорий магазинов
           }
           break;
-        // case 1:
-        //   {
-        //     Navigator.push(
-        //         context, MaterialPageRoute(builder: (context) => SearchScreen()));
-        //   }
+        case 1:
+          {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SearchStoresScreen()));
+          }
+          break;
 
-        //   break;
         // case 2:
         //   {
         //     Navigator.push(

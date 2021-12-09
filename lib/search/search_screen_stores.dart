@@ -1,3 +1,6 @@
+import 'package:floivery/components/navigator.dart';
+import 'package:floivery/components/top_logo.dart';
+import 'package:floivery/constants.dart';
 import 'package:flutter/material.dart';
 
 class SearchStoresScreen extends StatelessWidget {
@@ -5,16 +8,41 @@ class SearchStoresScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var heighScreen = MediaQuery.of(context).size.height;
+    var widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(title: const Text("Stores search"), actions: <Widget>[
-        IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              showSearch(context: context, delegate: DataSearch());
-            })
-      ]),
-      drawer: Drawer(),
-    );
+        bottomNavigationBar: const BottomNavigator(),
+        body: Column(
+          children: [
+            const TopLogo(),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Container(
+                height: heighScreen * 0.05,
+                width: widthScreen * 0.9,
+                decoration: BoxDecoration(
+                    border: Border.all(color: kAdditional, width: 1.5),
+                    borderRadius: BorderRadius.circular(20)),
+                child: Row(
+                  children: [
+                    IconButton(
+                        icon: const Icon(Icons.search),
+                        onPressed: () {
+                          showSearch(context: context, delegate: DataSearch());
+                        }),
+                    const Text(
+                      "Search field",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: kAdditional),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
 
@@ -50,6 +78,7 @@ class DataSearch extends SearchDelegate<String> {
         },
         icon: AnimatedIcon(
           icon: AnimatedIcons.menu_arrow,
+          color: kAdditional,
           progress: transitionAnimation,
         ));
   }
@@ -58,7 +87,7 @@ class DataSearch extends SearchDelegate<String> {
   Widget buildResults(BuildContext context) {
     return Card(
       color: Colors.green,
-      shape: StadiumBorder(),
+      shape: const StadiumBorder(),
       child: Center(
         child: Text(query),
       ),
@@ -78,18 +107,18 @@ class DataSearch extends SearchDelegate<String> {
           onTap: () {
             showResults(context);
           },
-          leading: Icon(Icons.store),
+          leading: const Icon(Icons.store, color: kPrimaryColor),
           title: RichText(
             text: TextSpan(
               children: [
                 TextSpan(
                   text: suggestionList[index].name.substring(query.length),
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: kPrimaryColor),
                 ),
               ],
               text: suggestionList[index].name.substring(0, query.length),
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  color: kAdditional, fontWeight: FontWeight.bold),
             ),
           ),
           subtitle: RichText(
@@ -99,8 +128,12 @@ class DataSearch extends SearchDelegate<String> {
                     " stars",
                 style: TextStyle(color: Colors.grey)),
           ),
-          trailing:
-              suggestionList[index].rating > 4.5 ? Icon(Icons.star) : null),
+          trailing: suggestionList[index].rating > 4.5
+              ? const Icon(
+                  Icons.star,
+                  color: Colors.orange,
+                )
+              : null),
       itemCount: suggestionList.length,
     );
   }

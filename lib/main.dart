@@ -1,6 +1,7 @@
 import 'package:floivery/screens/main/main_screen.dart';
 import 'package:floivery/screens/profile/profile.dart';
 import 'package:floivery/screens/stores/stores_screen.dart';
+import 'package:floivery/search/search_screen_stores.dart';
 import 'package:flutter/material.dart';
 import 'package:floivery/screens/registration/registration_screen.dart';
 import 'package:floivery/constants.dart';
@@ -19,12 +20,13 @@ class MyApp extends StatelessWidget {
           primaryColor: kPrimaryColor,
           scaffoldBackgroundColor: kBackground,
         ),
-        initialRoute: 'main-screen',
+        initialRoute: 'search-stores-screen',
         routes: {
           'registration-screen': (context) => const RegistrationScreen(),
           'main-screen': (context) => const MainScreen(),
-          'store-scrern': (context) => const StoresScreen(),
+          'store-screen': (context) => const StoresScreen(),
           'profile-screen': (context) => const ProfileScreen(),
+          'search-stores-screen': (context) => const SearchStoresScreen(),
           // 'search-screen': (context) => (),
           // 'profile-screen': (context) => (),
           // '/profile': (context) => Profile(),
